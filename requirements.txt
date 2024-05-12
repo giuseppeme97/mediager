@@ -1,0 +1,4 @@
+ffmpeg-python==0.2.0
+future==1.0.0
+pillow==10.3.0
+pillow_heif==0.16.0
