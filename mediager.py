@@ -2,6 +2,7 @@ import os
 from core import PhotoCore, VideoCore
 import shutil
 from collections import defaultdict
+import sys
 
 class Mediager():
     def __init__(self, folder: str) -> None:
@@ -82,21 +83,16 @@ class Mediager():
 
     def start(self) -> None:
         while True:
-            choice = self.show_menu()
-            if choice == 0:
-                break
-            elif choice == 1:
-                self.rename_photos_by_date()
-            elif choice == 2:
-                self.move_photo_by_year()
-            elif choice == 3:
-                self.rename_videos_by_date()
-            elif choice == 4:
-                self.move_videos_by_year()
-            elif choice == 5:
-                self.check_duplicate_photos()
-            elif choice == 6:
-                self.check_duplicate_videos()
+            actions = {
+                0: sys.exit,
+                1: self.rename_photos_by_date,
+                2: self.move_photo_by_year,
+                3: self.rename_videos_by_date,
+                4: self.move_videos_by_year,
+                5: self.check_duplicate_photos,
+                6: self.check_duplicate_videos
+            }
+            actions.get(self.show_menu(), lambda x: print("Comando non valido."))()
             
 
 if __name__ == "__main__":
