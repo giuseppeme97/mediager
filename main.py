@@ -56,7 +56,6 @@ class Mediager():
     def check_rename_videos_by_date(self):
         for file in self.get_files_list(self.folder):
             if not file.startswith('.') and self.is_valid_file(file):
-                print(file)
                 _, ext = os.path.splitext(f"{self.folder}/{file}")
                 try:
                     final_date = VideoCore.get_date_from_video(f"{self.folder}/{file}")
@@ -67,7 +66,6 @@ class Mediager():
     def rename_videos_by_date(self):
         for file in self.get_files_list(self.folder):
             if not file.startswith('.') and self.is_valid_file(file):
-                print(file)
                 _, ext = os.path.splitext(f"{self.folder}/{file}")
                 try:
                     final_date = VideoCore.get_date_from_video(f"{self.folder}/{file}")
@@ -99,6 +97,5 @@ class Mediager():
 
 
 if __name__ == "__main__":
-    # mediager = Mediager("./ok")
-    mediager = Mediager("/Volumes/SSK SSD/Video/Montaggi")
+    mediager = Mediager("./assets")
     mediager.start()
